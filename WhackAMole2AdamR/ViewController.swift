@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         scoreNum += 1
         score.text = String(scoreNum)
         mole.removeFromSuperview()
+        
     }
 
 }
