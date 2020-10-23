@@ -26,6 +26,9 @@ class ViewController: UIViewController {
         
         //Mole
         mole.backgroundColor = UIColor.brown
+        mole.frame = CGRect(x: screenWidth / 2, y: 70, width: 50, height: 50)
+        mole.layer.cornerRadius = 25
+        mole.addTarget(self, action: #selector(moleHit(_:)), for: .touchUpInside)
         
         //Score label
         score.text = "Score:" + String(scoreNum)
@@ -40,7 +43,10 @@ class ViewController: UIViewController {
         view.addSubview(mole)
         self.view = view
     }
-
+    
+    @objc func moleHit(_ sender:UIButton!) {
+        print("NICE!")
+    }
 
 }
 
