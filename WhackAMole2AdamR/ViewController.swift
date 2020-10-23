@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         mole.addTarget(self, action: #selector(moleHit(_:)), for: .touchUpInside)
         
         //Score label
-        score.text = "Score:" + String(scoreNum)
+        score.text = String(scoreNum)
         score.frame = CGRect(x: 20, y: 20, width: 100, height: screenHeight / 10)
         
         //Background Label
@@ -46,6 +46,8 @@ class ViewController: UIViewController {
     
     @objc func moleHit(_ sender:UIButton!) {
         print("NICE!")
+        scoreNum += 1
+        score.text = String(scoreNum)
     }
 
 }
