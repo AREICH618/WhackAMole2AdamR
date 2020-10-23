@@ -10,9 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var mole = UIButton()
+    var score = UILabel()
+    var background = UILabel()
+    var scoreNum = 0
+    var screenWidth = 0
+    var screenHeight = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let screenBounds: CGRect = UIScreen.main.bounds
+        screenWidth = Int(screenBounds.width)
+        screenHeight = Int(screenBounds.height)
+        
+        //Mole
+        mole.backgroundColor = UIColor.brown
+        
+        //Score label
+        score.text = "Score:" + String(scoreNum)
+        score.frame = CGRect(x: 20, y: 20, width: 100, height: screenHeight / 10)
+        
+        //Background Label
+        background.backgroundColor = UIColor.green
+        background.frame = CGRect(x: 20, y: 20, width: screenWidth - 40, height: screenHeight - 40)
+        
+        view.addSubview(background)
+        view.addSubview(score)
+        view.addSubview(mole)
+        self.view = view
     }
 
 
