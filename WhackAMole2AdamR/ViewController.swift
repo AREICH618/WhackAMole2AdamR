@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var scoreNum = 0
     var screenWidth = 0
     var screenHeight = 0
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class ViewController: UIViewController {
         view.addSubview(score)
         view.addSubview(mole)
         self.view = view
+        
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self,
+        selector: #selector(moleTime), userInfo: nil, repeats: true)
     }
     
     @objc func moleHit(_ sender:UIButton!) {
@@ -50,6 +54,22 @@ class ViewController: UIViewController {
         score.text = String(scoreNum)
         mole.removeFromSuperview()
         
+        let maxXRight = screenWidth - 60
+        let maxYBottom = screenHeight - 60
+        let randomX = Int.random(in: 40...maxXRight)
+        let randomY = Int.random(in: 40...maxYBottom)
+        mole.frame = CGRect(x: randomX, y: randomY, width: 50, height: 50)
+        view.addSubview(mole)
+        
+    }
+    @objc func moleTime(_ sender:Timer!) {
+        mole.removeFromSuperview()
+        let maxXRight = screenWidth - 60
+        let maxYBottom = screenHeight - 60
+        let randomX = Int.random(in: 40...maxXRight)
+        let randomY = Int.random(in: 40...maxYBottom)
+        mole.frame = CGRect(x: randomX, y: randomY, width: 50, height: 50)
+        view.addSubview(mole)
     }
 
 }
