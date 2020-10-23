@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         let randomY = Int.random(in: 40...maxYBottom)
         mole.frame = CGRect(x: randomX, y: randomY, width: 50, height: 50)
         view.addSubview(mole)
+        
     }
 
 }
