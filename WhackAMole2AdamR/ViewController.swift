@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         print("NICE!")
         scoreNum += 1
         score.text = String(scoreNum)
+        mole.removeFromSuperview()
     }
 
 }
